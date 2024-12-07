@@ -7,7 +7,8 @@ export default defineConfig({
   resolve:{
     alias:{
       "01-app":"/src/01-app",
-      "03-pages":"/src/03-pages"
+      "03-pages":"/src/03-pages",
+      "06-entities": "/src/06-entities"
     }
   },
   server:{
