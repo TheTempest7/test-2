@@ -1,0 +1,25 @@
+.wrapper {
+  width: fit-content;
+  border: 1px solid red;
+  border-radius: 4px;
+  background-color: #f8474745;
+}
+
+.content {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+
+  p {
+  margin-right: 10px;
+  }
+
+  button {
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 4px;
+    background-color: #23232f;
+  }
+}

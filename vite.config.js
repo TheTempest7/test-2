@@ -8,7 +8,8 @@ export default defineConfig({
     alias:{
       "01-app":"/src/01-app",
       "03-pages":"/src/03-pages",
-      "06-entities": "/src/06-entities"
+      "06-entities": "/src/06-entities",
+      "07-shared":"/src/07-shared"
     }
   },
   server:{

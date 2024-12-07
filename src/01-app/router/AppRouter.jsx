@@ -1,18 +1,18 @@
-import {  Suspense } from 'react';
+import {lazy, Suspense} from 'react';
 import { Route, Routes} from 'react-router-dom';
-import {MainPage} from "03-pages/main/index.js";
+import {Loader} from "07-shared/ui/Loader/Loader.jsx";
+import {ServiceDetailedPage} from "03-pages/service-detailed/index.js";
 
-const About = () => <h2>About Page</h2>;
+const MainPage = lazy(() => import('03-pages/main/index.js'))
 
 export const AppRouter = () => {
 
     return (
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Loader/>}>
             <Routes>
                 <Route path="/" element={<MainPage/>}/>
-                <Route path="/:id" element={<About/>}/>
+                <Route path="/:id/details" element={<ServiceDetailedPage/>}/>
             </Routes>
         </Suspense>
-)
-    ;
+    );
 };
