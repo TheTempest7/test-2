@@ -1,5 +1,5 @@
 import {Link, useParams} from "react-router-dom";
-import {useEffect} from "react";
+import {useCallback, useEffect} from "react";
 import {observer} from "mobx-react";
 import serviceDetailedStore, {ServiceCard} from "06-entities/service-detailed";
 import {Loader} from "07-shared/ui/Loader/Loader.jsx";
@@ -11,15 +11,15 @@ export const ServiceDetailedPage = observer(() => {
     const isLoading = serviceDetailedStore.isLoading;
     const error = serviceDetailedStore.errorMessage;
 
-    const fetchServiceDetails = () => {
+    const fetchServiceDetails = useCallback( () => {
         serviceDetailedStore.fetchServiceDetails(id)
-    }
+    },[id]);
 
     useEffect(()=> {
         fetchServiceDetails()
 
         return () => serviceDetailedStore.deleteDetails()
-    },[]);
+    },[fetchServiceDetails]);
 
     return <div>
         <h4>ServiceDetailedPage</h4>
