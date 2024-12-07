@@ -5,6 +5,8 @@ import serviceDetailedStore, {ServiceCard} from "06-entities/service-detailed";
 import {Loader} from "07-shared/ui/Loader/Loader.jsx";
 import {ErrorComponent} from "07-shared/ui/ErrorComponent/ErrorComponent.jsx";
 
+import s from './ServiceDetailedPage.module.scss';
+
 export const ServiceDetailedPage = observer(() => {
     const {id} = useParams();
 
@@ -12,20 +14,19 @@ export const ServiceDetailedPage = observer(() => {
     const error = serviceDetailedStore.errorMessage;
 
     const fetchServiceDetails = useCallback( () => {
-        serviceDetailedStore.fetchServiceDetails(id)
+        serviceDetailedStore.fetchServiceDetails(id);
     },[id]);
 
     useEffect(()=> {
-        fetchServiceDetails()
+        fetchServiceDetails();
 
-        return () => serviceDetailedStore.deleteDetails()
+        return () => serviceDetailedStore.deleteDetails();
     },[fetchServiceDetails]);
 
-    return <div>
-        <h4>ServiceDetailedPage</h4>
-        <Link to={'/'}>На Главную</Link>
-        {isLoading && <Loader/>}
-        {error && !isLoading && <ErrorComponent error={error} onButtonHandler={fetchServiceDetails} />}
+    return <div className={s.wrapper}>
+        <Link to={'/'} className={s.backLink}>На Главную</Link>
+        {isLoading && !error && <Loader className={s.loader}/>}
+        {error && !isLoading && <ErrorComponent className={s.error} error={error} onButtonHandler={fetchServiceDetails} />}
         {!isLoading && !error && <ServiceCard/>}
     </div>
 })

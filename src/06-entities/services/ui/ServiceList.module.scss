@@ -1,0 +1,38 @@
+.wrapper {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #23232f;
+  border-radius: 4px;
+  background-color: #23232f40;
+
+  h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  ul {
+    margin: 0 auto;
+    width: 400px;
+  }
+}
+
+.service {
+  margin-bottom: 5px;
+  display: flex;
+  &>div{
+    flex: 1 1 5%;
+  }
+  &>a {
+    flex: 1 1 70%;
+  }
+}
+
+.link {
+  white-space: nowrap;
+  color: #23232f;
+  &:hover {
+    color: #23232f80;
+  }
+}
